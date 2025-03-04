@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+	<head>
+		<title>Gra</title>
+		<meta name="author" content="Szymon Borowik">
+		<meta name="keywords" content="gra, żaba, zgadywanie,wróżbita, rozrywka">
+		<meta name="description" content="prosta gra na kilka sekund polegająca na interakcji z z fikcyjną postacią żaby wróżbity">
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="style.css"/>
+		<meta charset="UTF-8">
+	</head>
+    <body>
+        <nav class="navbar navbar-expand-lg shadow-lg" id="nav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active text-white" href="index.html">Posąg</a>
+                <a class="nav-item nav-link text-white" href="frog.html">Żaby</a>
+                <a class="nav-item nav-link text-white" href="highoracle.html">Wróżbita Fraciej <span class="sr-only">(obecna)</span></a>
+              </div>
+            </div>
+        </nav>
+
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <div class="text-center">
+                <img src="Maciej/1.png" id="master" class="img-fluid mb-3">
+                <p id="FrogDialog">Chcesz zagrać w grę?</p>
+                <button class="btn btn-primary" onclick="showInput()" id="playbutton">Zagraj</button>
+                <input type="text" id="hiddenInput" class="form-control mt-3" placeholder="Wpisz tutaj" oninput="cheat()" >
+            </div>
+        </div>
+    
+        <script>
+            let inter
+            function showInput() {
+                document.getElementById('hiddenInput').style.display = 'block';
+                document.getElementById('playbutton').innerHTML = "Zapisz";
+                document.getElementById('FrogDialog').innerHTML = "Wpisz sekretną frazę a Ja Wielki wróżbita ją wywróżę. Nie martw się zakryję oczy by nie oszukiwać.";
+                document.getElementById('master').src = "Maciej/2.png";
+                document.getElementById('playbutton').setAttribute('onclick','send()')
+                inter = setInterval(close, 1000);
+            }
+            function cheat(){
+                document.getElementById('master').src = "Maciej/3.png"; 
+                
+            }
+            function close(){
+                document.getElementById('master').src = "Maciej/2.png";
+            }
+            function send(){
+                clearInterval(inter);
+                guess = document.getElementById('hiddenInput').value; 
+                document.getElementById('hiddenInput').style.display = 'none';
+                document.getElementById('playbutton').innerHTML = "Zagraj";  
+                document.getElementById('FrogDialog').innerHTML = "Twoja sekretna fraza to ' " + guess + " '. Oczywiście zgadłem, nie musisz nawet potwierdzać, tak niesamowity jestem. Chcesz zagrać jeszcze raz?";
+
+                document.getElementById('master').src = "Maciej/1.png";
+                document.getElementById('playbutton').setAttribute('onclick','showInput()')
+                document.getElementById('master').src = "Maciej/1.png";
+            }
+
+        </script>
+
+
+
+
+        <script src="js/bootstrap.js"></script>        
+    </body>
+</html>
