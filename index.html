@@ -79,14 +79,15 @@
     </div>
         <script>
           document.getElementById('adWindow').style.display = 'none';
-          var pop = false;
           function popUpTime(){
             document.getElementById('adWindow').style.display = 'inline';
-            pop = true;
+            clearInterval(Test)
           }
-          setInterval(popUpTime,1000);
+          var Test = setInterval(popUpTime,5000);
           function closeAd() {
               document.getElementById('adWindow').style.display = 'none';
+              Test = setInterval(popUpTime,5000);
+              
           }
           function changeHue() {
             const label = document.querySelector('label[for="50"]');
