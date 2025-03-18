@@ -45,12 +45,12 @@
 	<div>
         </nav>
 
-        <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="container d-flex justify-content-center align-items-center vh-100" itemscope itemtype="https://schema.org/Game">
             <div class="text-center">
-                <img src="Maciej/1.png" id="master" class="img-fluid mb-3" alt="Tutaj jest żabi wróżbita(Na prawdę)">
-                <p id="FrogDialog">Chcesz zagrać w grę?</p>
-                <button class="btn btn-primary" onclick="showInput()" id="playbutton">Zagraj</button>
-                <input type="text" id="hiddenInput" class="form-control mt-3" placeholder="Wpisz tutaj" oninput="cheat()" >
+                <img src="Maciej/1.png" id="master" class="img-fluid mb-3" alt="Tutaj jest żabi wróżbita(Na prawdę)" itemprop="gameItem">
+                <p id="FrogDialog" itemprop="gameItem">Chcesz zagrać w grę?</p>
+                <button class="btn btn-primary" onclick="showInput()" id="playbutton" itemprop="gameItem">Zagraj</button>
+                <input type="text" id="hiddenInput" class="form-control mt-3" placeholder="Wpisz tutaj" oninput="cheat()" itemprop="gameItem">
             </div>
         </div>
         <div id="adWindow" class="position-fixed top-50 start-50 translate-middle p-4 bg-light border shadow rounded" style="width: 50%; height: 50%;">
